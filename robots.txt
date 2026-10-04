@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://giftforma.com.br/sitemap.xml

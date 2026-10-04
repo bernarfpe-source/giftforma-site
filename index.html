@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<title>Gift Forma</title>
+<meta name="description" content="Gift Forma: brindes corporativos exclusivos em impressão 3D, modelados a partir da identidade da sua marca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: graphite ground cut by diagonal panels and cyan hairlines, like the poster. One accent (cyan), one bold moment (the hero headline). */
+:root{
+  --bg:#0B0F13;
+  --bg-2:#131920;
+  --bg-3:#1B232B;
+  --panel:#222C35;
+  --line:#2B3640;
+  --line-hover:#3A4651;
+  --fg:#F2F6F8;
+  --muted:#A3AFB9;
+  --cyan:#33C9CD;          /* acento para texto e ícones (verde-água do logo, clareado p/ fundo escuro) */
+  --cyan-fill:#2BB5B8;     /* acento para botões e chips (cor exata do logo) */
+  --cyan-deep:#1B8E92;
+  --cyan-ink:#06262A;
+  --cyan-line:rgba(43,181,184,.9);
+  --green:#1FB85B;
+  --nav-bg:rgba(11,15,19,.82);
+  --shadow:0 30px 70px rgba(0,0,0,.55);
+  --shadow-soft:0 12px 30px rgba(0,0,0,.45);
+  --sw-line:rgba(255,255,255,.08);
+  --show-dark:block;       /* logo para fundo escuro */
+  --show-light:none;       /* logo para fundo claro */
+  --font-display:"Montserrat",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --font-body:"Manrope",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --radius:14px;
+  --maxw:1180px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#F4F7F9;--bg-2:#FFFFFF;--bg-3:#E8EEF2;--panel:#DCE4EA;--line:#D6DEE5;--line-hover:#B9C5CF;
+    --fg:#0E1519;--muted:#5A6A77;--cyan:#1B8E92;--cyan-fill:#2BB5B8;--cyan-deep:#1B8E92;--cyan-ink:#06262A;
+    --cyan-line:rgba(43,181,184,.85);--nav-bg:rgba(244,247,249,.86);
+    --shadow:0 30px 60px rgba(14,21,25,.16);--shadow-soft:0 12px 30px rgba(14,21,25,.18);--sw-line:rgba(14,21,25,.1);
+    --show-dark:none;--show-light:block;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F4F7F9;--bg-2:#FFFFFF;--bg-3:#E8EEF2;--panel:#DCE4EA;--line:#D6DEE5;--line-hover:#B9C5CF;
+  --fg:#0E1519;--muted:#5A6A77;--cyan:#1B8E92;--cyan-fill:#2BB5B8;--cyan-deep:#1B8E92;--cyan-ink:#06262A;
+  --cyan-line:rgba(43,181,184,.85);--nav-bg:rgba(244,247,249,.86);
+  --shadow:0 30px 60px rgba(14,21,25,.16);--shadow-soft:0 12px 30px rgba(14,21,25,.18);--sw-line:rgba(14,21,25,.1);
+  --show-dark:none;--show-light:block;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+section{padding-block:clamp(56px,8vw,104px);position:relative}
+.eyebrow{font-family:var(--font-display);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--cyan)}
+.h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:800;margin-top:14px;max-width:18ch}
+.lead{color:var(--muted);font-size:1.08rem;max-width:62ch;margin-top:16px}
+.sec-head{display:grid;gap:4px;margin-bottom:clamp(28px,4vw,48px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:.95rem;letter-spacing:.02em;padding:14px 24px;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease,border-color .15s ease,color .15s ease;white-space:nowrap}
+.btn:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.btn-primary{background:var(--cyan-fill);color:var(--cyan-ink)}
+.btn-primary:hover{background:#3FD0D3;transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--fg);background:transparent}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--nav-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px}
+.logo{display:inline-flex;align-items:center;text-decoration:none;line-height:0}
+.logo img{height:52px;width:auto;max-width:min(60vw,260px);object-fit:contain}
+.logo .l-dark{display:var(--show-dark)}
+.logo .l-light{display:var(--show-light)}
+footer .logo img{height:76px;max-width:min(80vw,320px)}
+.menu{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.menu a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem;transition:color .15s}
+.menu a:hover{color:var(--fg)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.burger,.theme-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;color:var(--fg);cursor:pointer;align-items:center;justify-content:center;transition:border-color .15s,color .15s}
+.theme-btn{display:inline-flex}
+.theme-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.burger svg,.theme-btn svg{width:22px;height:22px}
+.theme-btn .sun{display:none}
+:root[data-theme="light"] .theme-btn .sun{display:block}
+:root[data-theme="light"] .theme-btn .moon{display:none}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .theme-btn .sun{display:block}:root:not([data-theme="dark"]) .theme-btn .moon{display:none}}
+@media (max-width:900px){
+  .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg-2);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:8px 0}
+  .menu.open{display:flex}
+  .menu li a{display:block;padding:14px clamp(16px,4vw,32px)}
+  .burger{display:inline-flex}
+  .nav-cta .btn{display:none}
+}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(48px,7vw,96px);overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+  linear-gradient(118deg,transparent 0 46%,var(--bg-3) 46.1% 47%,transparent 47.1%),
+  linear-gradient(118deg,var(--bg-2) 0 38%,var(--bg) 38.1%);}
+.hero::after{content:"";position:absolute;z-index:-1;right:-10%;top:-20%;width:60%;height:140%;background:
+  linear-gradient(118deg,transparent 0 30%,var(--cyan-line) 30.05% 30.35%,transparent 30.4%),
+  linear-gradient(118deg,transparent 0 62%,var(--cyan-line) 62.05% 62.25%,transparent 62.3%);
+  filter:drop-shadow(0 0 12px rgba(43,181,184,.55));pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.98}
+.hero h1 .accent{color:var(--cyan)}
+.hero .sub{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--muted);margin-top:18px;max-width:50ch}
+.hero .sub strong{color:var(--fg);font-weight:600}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.hero .trust span{display:inline-flex;align-items:center;gap:8px}
+.hero .trust svg{width:16px;height:16px;color:var(--cyan)}
+.hero-visual{position:relative;min-width:0}
+.hero-visual .frame{position:relative;border-radius:22px;overflow:hidden;background:var(--bg-3);border:1px solid var(--line);box-shadow:var(--shadow)}
+.hero-visual .frame img{width:100%;height:auto;aspect-ratio:1.4;object-fit:cover}
+.hero-visual .tag{position:absolute;left:18px;bottom:18px;background:var(--nav-bg);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:grid;gap:2px}
+.hero-visual .tag b{font-family:var(--font-display);font-size:.85rem}
+.hero-visual .tag small{color:var(--muted);font-size:.78rem}
+.hero-visual .chip{position:absolute;right:18px;top:18px;background:var(--cyan-fill);color:var(--cyan-ink);font-family:var(--font-display);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero-visual{order:-1}}
+
+/* ---------- Pillars strip ---------- */
+.pillars{padding-block:0;border-block:1px solid var(--line);background:var(--bg-2)}
+.pillars .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.pillar{padding:26px 22px;display:grid;gap:8px;border-left:1px solid var(--line)}
+.pillar:first-child{border-left:0;padding-left:0}
+.pillar svg{width:26px;height:26px;color:var(--cyan)}
+.pillar b{font-family:var(--font-display);font-size:.95rem}
+.pillar span{color:var(--muted);font-size:.9rem;line-height:1.45}
+@media (max-width:900px){.pillars .wrap{grid-template-columns:1fr 1fr}.pillar{border-left:0;border-top:1px solid var(--line);padding-left:0}.pillar:nth-child(-n+2){border-top:0}}
+@media (max-width:520px){.pillars .wrap{grid-template-columns:1fr}.pillar:nth-child(2){border-top:1px solid var(--line)}}
+
+/* ---------- Products ---------- */
+.grid-products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prod{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;display:grid;gap:12px;align-content:start;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.prod .pic{margin:-24px -22px 6px;aspect-ratio:1.25;overflow:hidden;background:var(--bg-3);border-bottom:1px solid var(--line)}
+.prod .pic img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.prod:hover .pic img{transform:scale(1.04)}
+.prod .pic.ph{display:grid;place-items:center;color:var(--cyan);background:linear-gradient(118deg,var(--bg-3) 0 60%,var(--panel) 60.1%)}
+.prod .pic.ph svg{width:72px;height:72px;opacity:.8}
+.prod-note{margin-top:18px;color:var(--muted);font-size:.85rem}
+.prod::after{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(43,181,184,.18),transparent 65%);opacity:0;transition:opacity .2s}
+.prod:hover{border-color:var(--cyan-deep);transform:translateY(-3px)}
+.prod:hover::after{opacity:1}
+.prod .ico{width:46px;height:46px;border-radius:12px;background:var(--bg-3);display:grid;place-items:center;color:var(--cyan)}
+.prod .ico svg{width:26px;height:26px}
+.prod h3{font-size:1.02rem;font-weight:800}
+.prod p{color:var(--muted);font-size:.92rem;line-height:1.5}
+@media (max-width:1000px){.grid-products{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.grid-products{grid-template-columns:1fr}}
+
+/* ---------- Case ---------- */
+.case{background:linear-gradient(118deg,var(--bg-2) 0 55%,var(--bg) 55.1%)}
+.case .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.case-img{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--bg-3);box-shadow:var(--shadow);min-width:0}
+.case-img img{width:100%;height:auto}
+.case-body{min-width:0}
+.case h3{font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:800;margin-top:14px}
+.case .client{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:8px 14px 8px 8px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;color:var(--muted)}
+.case .client i{width:14px;height:14px;border-radius:50%;background:var(--green);display:inline-block;box-shadow:0 0 0 3px rgba(31,184,91,.2)}
+.specs{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.specs li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;color:var(--muted);font-size:.98rem}
+.specs li b{color:var(--fg);font-weight:600}
+.specs svg{width:22px;height:22px;color:var(--cyan);margin-top:2px}
+.case.alt{background:linear-gradient(118deg,var(--bg) 0 45%,var(--bg-2) 45.1%)}
+.case.alt .case-img{order:2}
+.case-duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:0}
+.case-duo figure{margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#F2F2F2;box-shadow:var(--shadow);min-width:0}
+.case-duo img{width:100%;height:100%;object-fit:cover;aspect-ratio:.78}
+.case-duo figcaption{font-size:.8rem;color:var(--muted);padding:10px 12px;background:var(--bg-2);border-top:1px solid var(--line)}
+.case .client.xv i{background:#1E3A8A;box-shadow:0 0 0 3px rgba(30,58,138,.25)}
+@media (max-width:900px){.case .wrap{grid-template-columns:1fr}.case,.case.alt{background:var(--bg-2)}.case.alt .case-img{order:0}}
+
+/* ---------- Process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:step}
+.step{position:relative;padding:26px 22px 24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2);display:grid;gap:10px;align-content:start}
+.step .num{font-family:var(--font-display);font-weight:900;font-size:2.2rem;color:var(--cyan);line-height:1;font-variant-numeric:tabular-nums}
+.step h3{font-size:1.05rem;font-weight:800}
+.step p{color:var(--muted);font-size:.93rem;line-height:1.5}
+.step .time{margin-top:6px;font-size:.8rem;color:var(--cyan);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.step::after{content:"";position:absolute;right:-17px;top:38px;width:18px;height:2px;background:var(--line)}
+.step:last-child::after{display:none}
+@media (max-width:1000px){.steps{grid-template-columns:repeat(2,1fr)}.step::after{display:none}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* ---------- Compare ---------- */
+.compare{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2)}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;font-size:.95rem}
+th{font-family:var(--font-display);font-weight:800;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+th.us{color:var(--cyan)}
+td.us{color:var(--fg);font-weight:600}
+td.them{color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--muted);font-weight:600;width:28%}
+td.us::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-right:10px;vertical-align:middle}
+
+/* ---------- Materials ---------- */
+.mat-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,48px);align-items:start}
+.mat{display:grid;gap:14px}
+.mat-card{border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;background:var(--bg-2);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.mat-card .badge{font-family:var(--font-display);font-weight:900;font-size:1.1rem;color:var(--cyan);background:var(--bg-3);border-radius:10px;padding:10px 12px;min-width:64px;text-align:center}
+.mat-card h3{font-size:1rem;font-weight:800}
+.mat-card p{color:var(--muted);font-size:.92rem;margin-top:6px;line-height:1.5}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:12px;margin-top:18px}
+.sw{display:grid;gap:8px;text-align:center;font-size:.78rem;color:var(--muted)}
+.sw i{display:block;aspect-ratio:1;border-radius:12px;border:1px solid var(--sw-line);box-shadow:inset 0 -10px 20px rgba(0,0,0,.25)}
+.mat-note{margin-top:16px;color:var(--muted);font-size:.9rem}
+@media (max-width:900px){.mat-grid{grid-template-columns:1fr}}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;gap:10px;max-width:860px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:0 20px}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-family:var(--font-display);font-weight:700;font-size:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;color:var(--cyan);font-weight:400;flex:none;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding-bottom:18px;max-width:70ch}
+
+/* ---------- Quote form ---------- */
+.quote{background:linear-gradient(118deg,var(--bg) 0 40%,var(--bg-2) 40.1%)}
+.quote .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,64px);align-items:start}
+.quote-side{position:sticky;top:96px}
+.quote-side ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px;color:var(--muted)}
+.quote-side li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start}
+.quote-side svg{width:22px;height:22px;color:var(--cyan);margin-top:2px}
+.contact-box{margin-top:26px;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;background:var(--bg-2);display:grid;gap:10px}
+.contact-box .row{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.95rem}
+.contact-box .row span:first-child{color:var(--muted)}
+.contact-box .row span:last-child{font-weight:600;user-select:all}
+form{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;gap:16px;min-width:0}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:6px;min-width:0}
+label{font-size:.85rem;font-weight:700;color:var(--muted);letter-spacing:.02em}
+input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--fg);font:inherit;font-size:.98rem;padding:12px 14px;transition:border-color .15s}
+input:hover,select:hover,textarea:hover{border-color:var(--line-hover)}
+input:focus,select:focus,textarea:focus{border-color:var(--cyan);outline:none}
+textarea{min-height:120px;resize:vertical}
+input[type=file]{padding:9px 12px;color:var(--muted)}
+input[type=file]::file-selector-button{font:inherit;font-weight:700;background:var(--bg-3);color:var(--fg);border:0;border-radius:8px;padding:6px 12px;margin-right:12px;cursor:pointer}
+.hint{font-size:.8rem;color:var(--muted)}
+.f-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:4px}
+.f-actions small{color:var(--muted);font-size:.82rem}
+.err{color:#FF8A8A;font-size:.85rem;display:none}
+.result{display:none;border:1px solid var(--cyan-deep);border-radius:12px;padding:18px 20px;background:rgba(43,181,184,.06);gap:12px}
+.result.show{display:grid}
+.result h4{font-size:1rem}
+.result p{color:var(--muted);font-size:.92rem}
+.result pre{white-space:pre-wrap;font:inherit;font-size:.9rem;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;margin:0;color:var(--fg)}
+.result .acts{display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:900px){.quote .wrap{grid-template-columns:1fr}.quote-side{position:static}.quote{background:var(--bg-2)}}
+@media (max-width:560px){.f-row{grid-template-columns:1fr}}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);padding-block:40px 32px;background:var(--bg)}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer p{color:var(--muted);font-size:.92rem;max-width:40ch;margin-top:12px}
+footer h4{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer li a{text-decoration:none;color:var(--fg);font-size:.95rem}
+footer li a:hover{color:var(--cyan)}
+.copy{margin-top:32px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr 1fr}footer .brandcol{grid-column:1/-1}}
+
+/* ---------- WhatsApp float ---------- */
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;width:56px;height:56px;border-radius:50%;background:#25D366;color:#062a12;display:grid;place-items:center;box-shadow:var(--shadow-soft);text-decoration:none;transition:transform .15s}
+.wa:hover{transform:scale(1.06)}
+.wa svg{width:28px;height:28px}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--fg);color:var(--bg);font-weight:700;font-size:.9rem;padding:10px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.2s;z-index:60}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="gfmark" viewBox="0 0 120 120">
+      <path d="M60 24 C44 4 18 4 21 16 C23 26 46 27 60 24 Z" fill="currentColor"/>
+      <path d="M60 24 C76 4 102 4 99 16 C97 26 74 27 60 24 Z" fill="currentColor"/>
+      <path d="M57 22 C46 11 31 11 32 16 C33 21 48 22 57 22 Z" fill="var(--bg)"/>
+      <path d="M63 22 C74 11 89 11 88 16 C87 21 72 22 63 22 Z" fill="var(--bg)"/>
+      <rect x="55" y="15" width="10" height="14" rx="2" fill="currentColor"/>
+      <polygon points="60,24 96,42 60,63 24,42" fill="currentColor"/>
+      <polygon points="24,42 60,63 60,106 24,85" fill="#2BB5B8"/>
+      <polygon points="96,42 60,63 60,106 96,85" fill="#1B8E92"/>
+      <g transform="matrix(36 21 0 43 24 42)" fill="none" stroke="#FFFFFF" stroke-width="0.14">
+        <circle cx="0.5" cy="0.5" r="0.33" stroke-dasharray="1.67 0.40" stroke-dashoffset="0.09"/>
+        <line x1="0.52" y1="0.5" x2="0.84" y2="0.5"/>
+        <line x1="0.77" y1="0.5" x2="0.77" y2="0.66"/>
+      </g>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M4 12.5l5 5L20 6.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3.4 4.4c-.2 0-.5 0-.8.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.5 0 1.7-.7 2-1.4.2-.7.2-1.3.1-1.4l-.5-.3-1.9-.9c-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5.3-.5v-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5Z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 20c0-8 4-14 14-15 0 10-5 14-13 14M5 20c2-4 5-7 9-9"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 3 2 8l10 5 10-5-10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"/></symbol>
+    <symbol id="i-proto" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16v12H4zM4 11h16M8 7V4h8v3"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 2 3 7v10l9 5 9-5V7l-9-5ZM3 7l9 5 9-5M12 12v10"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 20h16M6 16l10-10 2 2L8 18H6v-2Z"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 10a4 4 0 1 0-3.6 3.98L4 20h3v-2h2v-2h2l1-1a4 4 0 0 0 2-5Zm-2-1h.01"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M2 6h12v10H2zM14 10h4l3 3v3h-7zM6 19a1.5 1.5 0 1 0 0-.1M17 19a1.5 1.5 0 1 0 0-.1"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7 4h10v5a5 5 0 0 1-10 0V4ZM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 14v4M8 20h8"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1ZM11 18h2"/></symbol>
+    <symbol id="i-mascot" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4a7 7 0 0 0-7 7v2a7 7 0 0 0 14 0v-2a7 7 0 0 0-7-7ZM9 12h.01M15 12h.01M9 16c1.5 1.3 4.5 1.3 6 0M6 6 4 3M18 6l2-3"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 8h18v10H3zM3 12h18M7 16h4"/></symbol>
+    <symbol id="i-lamp" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3 11.2V16h6v-1.8A6 6 0 0 0 12 3Z"/></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 17 17 3l4 4L7 21l-4-4ZM8 12l2 2M11 9l2 2M14 6l2 2"/></symbol>
+    <symbol id="i-brand" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 4h7l9 9-7 7-9-9V4ZM8 8h.01"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Gift Forma, página inicial">
+      <img class="l-dark" src="assets/logo-dark.png" alt="GiftForma, brindes criativos em 3D" width="1200" height="353">
+      <img class="l-light" src="assets/logo.png" alt="GiftForma, brindes criativos em 3D" width="1200" height="353">
+    </a>
+    <nav aria-label="Principal">
+      <ul class="menu" id="menu">
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#case">Portfólio</a></li>
+        <li><a href="#processo">Como funciona</a></li>
+        <li><a href="#porque">Por que 3D</a></li>
+        <li><a href="#materiais">Materiais</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#orcamento">Pedir orçamento</a>
+      <button class="theme-btn" id="theme-btn" type="button" aria-label="Alternar tema claro e escuro" title="Tema claro / escuro">
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">Impressão 3D personalizada</span>
+      <h1 style="margin-top:16px">Brindes que dão <span class="accent">forma à sua marca</span></h1>
+      <p class="sub">Peças exclusivas, modeladas do zero a partir do seu logo, do seu produto ou da sua frota. <strong>Nada de catálogo:</strong> o brinde é a sua marca em três dimensões.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#orcamento">Pedir orçamento <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#case">Ver um case real</a>
+      </div>
+      <div class="trust">
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg>Prova virtual antes de produzir</span>
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg>PLA de origem vegetal</span>
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg>Pequenas e médias tiragens</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="frame">
+        <img src="assets/case-rionovo.jpg" alt="Porta-canetas em formato de caminhão verde com o logo Rio Novo Encomendas e Cargas em relevo, segurando canetas e um bloco de notas" width="1032" height="841" loading="eager">
+        <span class="chip">Case real</span>
+        <div class="tag"><b>Caminhão porta-canetas</b><small>Rio Novo Encomendas e Cargas</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars" aria-label="Diferenciais">
+  <div class="wrap">
+    <div class="pillar"><svg aria-hidden="true"><use href="#i-brand"/></svg><b>Exclusivo da sua marca</b><span>Cada peça é modelada em 3D para o seu briefing. Ninguém mais recebe a mesma.</span></div>
+    <div class="pillar"><svg aria-hidden="true"><use href="#i-proto"/></svg><b>Aprovação antes da tiragem</b><span>Você vê a prova virtual e, se quiser, uma peça física antes de liberar a produção.</span></div>
+    <div class="pillar"><svg aria-hidden="true"><use href="#i-leaf"/></svg><b>Material de origem vegetal</b><span>Impressão em PLA, bioplástico feito de amido de milho e cana. Sem cheiro, sem desperdício de molde.</span></div>
+    <div class="pillar"><svg aria-hidden="true"><use href="#i-layers"/></svg><b>Tiragem sob medida</b><span>De dezenas a centenas de unidades, sem ferramental nem lote mínimo industrial.</span></div>
+  </div>
+</section>
+
+<section id="produtos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O que fazemos</span>
+      <h2 class="h2">Brindes úteis, que ficam na mesa do cliente</h2>
+      <p class="lead">Partimos de objetos que as pessoas realmente usam no dia a dia e aplicamos a forma, a cor e o logo da sua empresa.</p>
+    </div>
+    <div class="grid-products">
+      <article class="prod"><div class="pic"><img src="assets/organizador.jpg" alt="Organizador de mesa impresso em 3D em formato de prédio azul-marinho, com canetas, bloco de notas e cartões" loading="lazy" width="1200" height="1200"></div><div class="ico"><svg aria-hidden="true"><use href="#i-pen"/></svg></div><h3>Porta-canetas e organizadores</h3><p>Em formato do seu produto, do seu caminhão ou do seu prédio. Compartimentos para canetas, blocos e cartões.</p></article>
+      <article class="prod"><div class="pic"><img src="assets/chaveiro-xavante.jpg" alt="Chaveiro em formato da frente de um ônibus Xavante, impresso em quatro cores, com corrente e argola metálica" loading="lazy" width="1312" height="1199"></div><div class="ico"><svg aria-hidden="true"><use href="#i-key"/></svg></div><h3>Chaveiros com logo</h3><p>Logo em relevo, duas cores ou mais. O brinde de maior volume e menor custo por peça.</p></article>
+      <article class="prod"><div class="pic"><img src="assets/miniatura-frota.jpg" alt="Miniatura de caminhão de entrega vermelho impressa em 3D sobre uma mesa, ao lado de um notebook" loading="lazy" width="1200" height="1200"></div><div class="ico"><svg aria-hidden="true"><use href="#i-truck"/></svg></div><h3>Miniaturas da frota e de produtos</h3><p>Réplicas em escala de caminhões, máquinas, equipamentos e embalagens, com a pintura da sua identidade.</p></article>
+      <article class="prod"><div class="pic"><img src="assets/trofeu.jpg" alt="Troféu geométrico dourado impresso em 3D sobre base preta com logo e placa de identificação" loading="lazy" width="1200" height="1200"></div><div class="ico"><svg aria-hidden="true"><use href="#i-trophy"/></svg></div><h3>Troféus e placas</h3><p>Reconhecimento de equipe, premiação de parceiros e marcos da empresa com desenho exclusivo.</p></article>
+      <article class="prod"><div class="pic"><img src="assets/suporte-celular.jpg" alt="Suporte de celular branco impresso em 3D com logo ciano em relevo, segurando um smartphone sobre a mesa" loading="lazy" width="1200" height="1200"></div><div class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></div><h3>Suportes de celular e notebook</h3><p>Brinde de home office com logo integrado à peça, não adesivado.</p></article>
+      <article class="prod"><div class="pic ph" aria-hidden="true"><svg><use href="#i-mascot"/></svg></div><div class="ico"><svg aria-hidden="true"><use href="#i-mascot"/></svg></div><h3>Mascotes e personagens</h3><p>Transformamos o mascote 2D da sua marca em um boneco físico colecionável.</p></article>
+      <article class="prod"><div class="pic ph" aria-hidden="true"><svg><use href="#i-card"/></svg></div><div class="ico"><svg aria-hidden="true"><use href="#i-card"/></svg></div><h3>Porta-cartões e displays de balcão</h3><p>Peças para recepção, feira e ponto de venda que apresentam a marca e organizam o material.</p></article>
+      <article class="prod"><div class="pic ph" aria-hidden="true"><svg><use href="#i-lamp"/></svg></div><div class="ico"><svg aria-hidden="true"><use href="#i-lamp"/></svg></div><h3>Luminárias e peças decorativas</h3><p>Logo vazado ou em relevo com iluminação LED. Presente de fim de ano para clientes especiais.</p></article>
+    </div>
+    <p class="prod-note">Imagens das categorias são ilustrativas. As fotos de peças produzidas estão no portfólio.</p>
+  </div>
+</section>
+
+<section id="case" class="case">
+  <div class="wrap">
+    <div class="case-img">
+      <img src="assets/case-rionovo.jpg" alt="Detalhe do caminhão porta-canetas Rio Novo com os três compartimentos ocupados por canetas e bloco de notas" width="1032" height="841" loading="lazy">
+    </div>
+    <div class="case-body">
+      <span class="eyebrow">Case</span>
+      <h3>Caminhão porta-canetas para a Rio Novo Encomendas e Cargas</h3>
+      <span class="client"><i aria-hidden="true"></i>Transportadora · brinde para clientes</span>
+      <p class="lead" style="margin-top:18px">Uma transportadora precisava de um brinde que lembrasse o serviço dela todos os dias na mesa do cliente. A resposta foi a própria frota: um baú de caminhão que organiza canetas, bloco de notas e cartões.</p>
+      <ul class="specs">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Logo em relevo</b> impresso na própria peça, em branco sobre o verde da frota. Não descasca nem desbota como adesivo.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Três compartimentos</b> dimensionados para canetas, bloco de notas padrão e cartões de visita.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Cabine, rodas e para-choque</b> modelados a partir das fotos do caminhão real, para o cliente reconhecer a frota.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Cor do padrão visual</b> da empresa, sem pintura: o filamento já vem na cor certa.</span></li>
+      </ul>
+      <div class="ctas" style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="#orcamento">Quero um case assim</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case alt" aria-labelledby="case-xavante">
+  <div class="wrap">
+    <div class="case-img case-duo">
+      <figure>
+        <img src="assets/case-xavante-mala.jpg" alt="Render do chaveiro em formato de mala de viagem azul-marinho com o logo Xavante 57 anos em relevo e argola embutida no canto superior" width="366" height="608" loading="lazy">
+        <figcaption>Mala de viagem com argola embutida</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/chaveiro-xavante.jpg" alt="Chaveiro em formato da frente de um ônibus Xavante, impresso em cinza, preto, ciano e azul, com corrente e argola metálica" width="1312" height="1199" loading="lazy">
+        <figcaption>Frente do ônibus em quatro cores</figcaption>
+      </figure>
+    </div>
+    <div class="case-body">
+      <span class="eyebrow">Case</span>
+      <h3 id="case-xavante">Chaveiros comemorativos dos 57 anos da Viação Xavante</h3>
+      <span class="client xv"><i aria-hidden="true"></i>Empresa de ônibus · aniversário da marca</span>
+      <p class="lead" style="margin-top:18px">Para a data comemorativa, dois chaveiros que contam a história da empresa: a mala do passageiro, com o selo dos 57 anos, e a frente do ônibus da frota, reproduzida nas cores reais.</p>
+      <ul class="specs">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Argola embutida no corpo da peça</b>, sem orelha saliente: a mala continua com a silhueta limpa e o furo do aro fica protegido.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Impressão em várias cores</b> na mesma peça: cinza, preto, ciano e azul do ônibus saem direto da impressora, sem pintura.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Frisos, rodinhas e alça</b> modelados em relevo, mantidos também na parte de trás da mala.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Tiragem em bandeja cheia</b>: dezenas de chaveiros por impressão, o que viabiliza centenas de unidades para distribuir a passageiros e equipe.</span></li>
+      </ul>
+      <div class="ctas" style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="#orcamento">Quero um chaveiro assim</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="processo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Como funciona</span>
+      <h2 class="h2">Do briefing à caixa entregue, em quatro etapas</h2>
+      <p class="lead">Você aprova cada etapa antes de a próxima começar. Nenhuma peça entra em produção sem a sua liberação.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><h3>Briefing</h3><p>Você conta o objetivo (evento, fim de ano, boas-vindas), a quantidade e envia o logo e referências. Respondemos com uma proposta de peça e faixa de preço.</p><span class="time">Mesmo dia</span></div>
+      <div class="step"><span class="num">2</span><h3>Modelagem 3D e prova virtual</h3><p>Modelamos a peça e mandamos renders em vários ângulos, com as cores do seu manual de marca, para ajustes.</p><span class="time">Até 3 dias úteis</span></div>
+      <div class="step"><span class="num">3</span><h3>Protótipo físico</h3><p>Imprimimos uma unidade real. Você recebe fotos ou a peça em mãos para aprovar tamanho, encaixe e acabamento.</p><span class="time">Até 5 dias úteis</span></div>
+      <div class="step"><span class="num">4</span><h3>Produção e entrega</h3><p>Produção da tiragem completa, inspeção peça a peça, embalagem e envio para todo o Brasil, ou entrega no seu evento.</p><span class="time">Conforme a quantidade</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="porque">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Por que impressão 3D</span>
+      <h2 class="h2">Brinde de catálogo versus peça exclusiva</h2>
+      <p class="lead">Caneta, caneca e squeeze já estão na gaveta de todo mundo. A peça 3D é a única que o cliente nunca viu e, por isso, a única que ele guarda.</p>
+    </div>
+    <div class="compare">
+      <table>
+        <thead><tr><th scope="col">Critério</th><th scope="col" class="us">Gift Forma (3D)</th><th scope="col">Brinde de catálogo</th></tr></thead>
+        <tbody>
+          <tr><td>Formato da peça</td><td class="us">Desenhado para a sua marca</td><td class="them">O mesmo que o concorrente usa</td></tr>
+          <tr><td>Aplicação do logo</td><td class="us">Em relevo, parte da própria peça</td><td class="them">Adesivo, serigrafia ou gravação que desgasta</td></tr>
+          <tr><td>Quantidade mínima</td><td class="us">Dezenas de unidades</td><td class="them">Centenas ou milhares</td></tr>
+          <tr><td>Ajustes no projeto</td><td class="us">Até a aprovação da prova</td><td class="them">Só na escolha da cor</td></tr>
+          <tr><td>Investimento inicial</td><td class="us">Sem molde nem ferramental</td><td class="them">Molde e matriz para peças exclusivas</td></tr>
+          <tr><td>Material</td><td class="us">PLA de origem vegetal</td><td class="them">Plástico derivado de petróleo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="materiais">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Materiais e cores</span>
+      <h2 class="h2">Acabamento de produto, não de protótipo</h2>
+    </div>
+    <div class="mat-grid">
+      <div class="mat">
+        <div class="mat-card"><span class="badge">PLA</span><div><h3>Padrão para brindes</h3><p>Bioplástico de amido de milho e cana. Acabamento fosco uniforme, excelente definição de detalhes e logos em relevo. Ideal para peças de mesa, chaveiros, miniaturas e troféus.</p></div></div>
+        <div class="mat-card"><span class="badge">PETG</span><div><h3>Para uso intenso</h3><p>Mais resistente a impacto, calor e umidade. Indicado para suportes, porta-objetos de uso externo e peças que vão para o carro ou para a obra.</p></div></div>
+        <div class="mat-card"><span class="badge">Multi-cor</span><div><h3>Logo na cor certa</h3><p>Impressão com troca de cor na mesma peça: logo branco sobre verde, detalhes em contraste, sem pintura manual.</p></div></div>
+      </div>
+      <div>
+        <p class="lead" style="margin-top:0">Cores de catálogo. Tons fora da cartela são avaliados sob consulta, com amostra física antes da produção.</p>
+        <div class="swatches" aria-label="Cores disponíveis">
+          <div class="sw"><i style="background:#F4F4F2"></i>Branco</div>
+          <div class="sw"><i style="background:#161A1E"></i>Preto</div>
+          <div class="sw"><i style="background:#7C858D"></i>Cinza</div>
+          <div class="sw"><i style="background:#19DDE9"></i>Ciano</div>
+          <div class="sw"><i style="background:#1F6FEB"></i>Azul</div>
+          <div class="sw"><i style="background:#1FB85B"></i>Verde</div>
+          <div class="sw"><i style="background:#E53935"></i>Vermelho</div>
+          <div class="sw"><i style="background:#FF8A1F"></i>Laranja</div>
+          <div class="sw"><i style="background:#FFD23F"></i>Amarelo</div>
+          <div class="sw"><i style="background:#8E44AD"></i>Roxo</div>
+          <div class="sw"><i style="background:#F06292"></i>Rosa</div>
+          <div class="sw"><i style="background:linear-gradient(135deg,#8a6b2f,#d9b96a 55%,#8a6b2f)"></i>Dourado</div>
+        </div>
+        <p class="mat-note">Logos com tons Pantone específicos são aproximados pelo filamento mais próximo, ou aplicados em acabamento de pintura sob consulta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2 class="h2">O que as empresas perguntam antes de pedir</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Qual é a quantidade mínima?</summary><p>Trabalhamos a partir de dezenas de unidades. Como não há molde, a quantidade mínima depende do tamanho da peça, não de um lote industrial. Peças pequenas, como chaveiros, viabilizam tiragens maiores com custo unitário baixo.</p></details>
+      <details><summary>Preciso ter o modelo 3D pronto?</summary><p>Não. Você envia o logo em vetor (SVG, AI ou PDF) e fotos ou referências do objeto. A modelagem 3D é parte do serviço. Se já tiver um arquivo STL ou STEP, aproveitamos.</p></details>
+      <details><summary>Quanto tempo leva?</summary><p>Prova virtual em até 3 dias úteis após o briefing. Protótipo físico em até 5 dias úteis. O prazo da produção final depende da quantidade e do tamanho das peças, e é informado na proposta antes da aprovação.</p></details>
+      <details><summary>Posso ver uma peça antes de aprovar a tiragem?</summary><p>Sim. Além dos renders, imprimimos uma unidade física para aprovação. Você confere tamanho, encaixe, cores e acabamento antes de liberar a produção.</p></details>
+      <details><summary>O logo é adesivo ou impresso?</summary><p>Impresso. O logo é parte da própria geometria da peça, em relevo ou rebaixado, na cor do filamento. Não descola nem risca com o uso.</p></details>
+      <details><summary>Vocês entregam em todo o Brasil?</summary><p>Sim. Enviamos por transportadora ou Correios com embalagem individual, ou entregamos diretamente no local do seu evento quando combinado.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="orcamento" class="quote">
+  <div class="wrap">
+    <div class="quote-side">
+      <span class="eyebrow">Orçamento</span>
+      <h2 class="h2">Conte a sua ideia. Nós damos forma.</h2>
+      <p class="lead">Preencha o briefing ao lado. Retornamos com uma proposta de peça e uma faixa de preço, sem compromisso.</p>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Resposta no mesmo dia útil</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Proposta com render da peça</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Sem taxa de modelagem em pedidos aprovados</span></li>
+      </ul>
+      <div class="contact-box">
+        <div class="row"><span>WhatsApp</span><span id="c-wa">(00) 00000-0000</span></div>
+        <div class="row"><span>E-mail</span><span id="c-mail">contato@giftforma.com.br</span></div>
+        <div class="row"><span>Instagram</span><span>@giftforma</span></div>
+      </div>
+    </div>
+
+    <form id="quote-form" novalidate>
+      <div class="f-row">
+        <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" autocomplete="organization" required></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="whats">WhatsApp</label><input id="whats" name="whats" type="tel" autocomplete="tel" placeholder="(11) 90000-0000" required></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="tipo">Tipo de brinde</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecione</option>
+            <option>Porta-canetas / organizador</option>
+            <option>Chaveiro</option>
+            <option>Miniatura da frota ou produto</option>
+            <option>Troféu ou placa</option>
+            <option>Suporte de celular / notebook</option>
+            <option>Mascote ou personagem</option>
+            <option>Display ou porta-cartões</option>
+            <option>Luminária ou decorativo</option>
+            <option>Ainda não sei, quero sugestões</option>
+          </select>
+        </div>
+        <div class="field"><label for="qtd">Quantidade estimada</label>
+          <select id="qtd" name="qtd" required>
+            <option value="">Selecione</option>
+            <option>10 a 30 unidades</option>
+            <option>31 a 100 unidades</option>
+            <option>101 a 300 unidades</option>
+            <option>Mais de 300 unidades</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="prazo">Para quando?</label><input id="prazo" name="prazo" type="text" placeholder="Ex.: evento em 15/11 ou fim de ano"></div>
+        <div class="field"><label for="logo">Logo ou referências</label><input id="logo" name="logo" type="file" accept=".svg,.ai,.pdf,.png,.jpg,.jpeg,.stl,.step,.stp" multiple><span class="hint">SVG, PDF, PNG, STL. Pode enviar depois pelo WhatsApp.</span></div>
+      </div>
+      <div class="field"><label for="desc">Descreva a ideia</label><textarea id="desc" name="desc" placeholder="Ex.: queremos um porta-canetas no formato do nosso caminhão, nas cores da frota, para presentear 80 clientes no fim de ano."></textarea></div>
+      <span class="err" id="form-err">Preencha nome, empresa, e-mail, WhatsApp, tipo e quantidade para continuar.</span>
+      <div class="f-actions">
+        <button class="btn btn-primary" type="submit">Gerar meu briefing <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <small>Seus dados ficam só com a Gift Forma e servem apenas para responder ao pedido.</small>
+      </div>
+      <div class="result" id="result" aria-live="polite">
+        <h4>Briefing pronto</h4>
+        <p>Envie o texto abaixo pelo WhatsApp ou e-mail e responderemos com a proposta. O botão copia o resumo para você colar.</p>
+        <pre id="summary"></pre>
+        <div class="acts">
+          <button class="btn btn-primary" type="button" id="copy-btn">Copiar briefing</button>
+          <a class="btn btn-ghost" id="wa-link" href="#" target="_blank" rel="noopener">Abrir no WhatsApp <svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brandcol">
+      <a class="logo" href="#top" aria-label="Gift Forma">
+        <img class="l-dark" src="assets/logo-dark.png" alt="GiftForma, brindes criativos em 3D" width="1200" height="353" loading="lazy">
+        <img class="l-light" src="assets/logo.png" alt="GiftForma, brindes criativos em 3D" width="1200" height="353" loading="lazy">
+      </a>
+      <p>Brindes corporativos exclusivos em impressão 3D. Criatividade que vira presente.</p>
+    </div>
+    <div>
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#case">Portfólio</a></li>
+        <li><a href="#processo">Como funciona</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="#orcamento">Orçamento</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="#orcamento">WhatsApp (00) 00000-0000</a></li>
+        <li><a href="#orcamento">contato@giftforma.com.br</a></li>
+        <li><a href="#orcamento">@giftforma</a></li>
+      </ul>
+    </div>
+    <div class="copy" style="grid-column:1/-1">
+      <span>© <span id="year">2026</span> GiftForma. Todos os direitos reservados.</span>
+      <span id="legal">65.681.972 Maria Vanda Martins Lima · CNPJ 65.681.972/0001-34 · Brasília, DF</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" id="wa-float" href="#orcamento" aria-label="Falar no WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  // Troque pelo número real com DDI e DDD, só dígitos. Ex.: 5511999999999
+  var WHATSAPP = "";
+
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');}});
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  var root=document.documentElement;
+  function currentTheme(){
+    var t=root.getAttribute('data-theme');
+    if(t==='light'||t==='dark')return t;
+    return (window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';
+  }
+  try{var saved=localStorage.getItem('gf-theme');if(saved==='light'||saved==='dark')root.setAttribute('data-theme',saved);}catch(e){}
+  document.getElementById('theme-btn').addEventListener('click',function(){
+    var next=currentTheme()==='light'?'dark':'light';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('gf-theme',next);}catch(e){}
+  });
+
+  var waFloat=document.getElementById('wa-float');
+  if(WHATSAPP){waFloat.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent('Olá! Quero um orçamento de brinde em impressão 3D.');waFloat.target='_blank';waFloat.rel='noopener';}
+
+  var toast=document.getElementById('toast'),tt;
+  function say(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},2200);}
+
+  var form=document.getElementById('quote-form'),err=document.getElementById('form-err'),result=document.getElementById('result'),summary=document.getElementById('summary'),waLink=document.getElementById('wa-link');
+  function v(id){return (document.getElementById(id).value||'').trim();}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var required=['nome','empresa','email','whats','tipo','qtd'];
+    var missing=required.filter(function(id){return !v(id);});
+    var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'));
+    if(missing.length||!emailOk){err.style.display='block';document.getElementById(missing[0]||'email').focus();return;}
+    err.style.display='none';
+    var files=document.getElementById('logo').files;
+    var names=[];for(var i=0;i<files.length;i++){names.push(files[i].name);}
+    var text=
+      'BRIEFING GIFT FORMA\n'+
+      'Nome: '+v('nome')+'\n'+
+      'Empresa: '+v('empresa')+'\n'+
+      'E-mail: '+v('email')+'\n'+
+      'WhatsApp: '+v('whats')+'\n'+
+      'Tipo de brinde: '+v('tipo')+'\n'+
+      'Quantidade: '+v('qtd')+'\n'+
+      'Prazo: '+(v('prazo')||'a combinar')+'\n'+
+      'Arquivos: '+(names.length?names.join(', '):'envio depois')+'\n'+
+      'Ideia: '+(v('desc')||'quero sugestões');
+    summary.textContent=text;
+    if(WHATSAPP){waLink.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(text);}
+    else{waLink.href='#orcamento';waLink.removeAttribute('target');}
+    result.classList.add('show');
+    result.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+  document.getElementById('copy-btn').addEventListener('click',function(){
+    var text=summary.textContent;
+    function fallback(){var r=document.createRange();r.selectNodeContents(summary);var s=window.getSelection();s.removeAllRanges();s.addRange(r);say('Texto selecionado. Use Ctrl+C para copiar.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){say('Briefing copiado');},fallback);}else{fallback();}
+  });
+})();
+</script>
+</body>
+</html>

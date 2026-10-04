@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240" color="#2F3640">
+  <!-- laço -->
+  <path d="M60 24 C44 4 18 4 21 16 C23 26 46 27 60 24 Z" fill="currentColor"/>
+  <path d="M60 24 C76 4 102 4 99 16 C97 26 74 27 60 24 Z" fill="currentColor"/>
+  <path d="M57 22 C46 11 31 11 32 16 C33 21 48 22 57 22 Z" fill="#FFFFFF"/>
+  <path d="M63 22 C74 11 89 11 88 16 C87 21 72 22 63 22 Z" fill="#FFFFFF"/>
+  <rect x="55" y="15" width="10" height="14" rx="2" fill="currentColor"/>
+  <!-- cubo -->
+  <polygon points="60,24 96,42 60,63 24,42" fill="currentColor"/>
+  <polygon points="24,42 60,63 60,106 24,85" fill="#2BB5B8"/>
+  <polygon points="96,42 60,63 60,106 96,85" fill="#1B8E92"/>
+  <!-- G na face esquerda -->
+  <g transform="matrix(36 21 0 43 24 42)" fill="none" stroke="#FFFFFF" stroke-width="0.14">
+    <circle cx="0.5" cy="0.5" r="0.33" stroke-dasharray="1.67 0.40" stroke-dashoffset="0.09"/>
+    <line x1="0.52" y1="0.5" x2="0.84" y2="0.5"/>
+    <line x1="0.77" y1="0.5" x2="0.77" y2="0.66"/>
+  </g>
+  <!-- aba da fita na face direita -->
+  <polygon points="60,63 78,53 78,96 60,106" fill="currentColor" opacity="0.18"/>
+</svg>
