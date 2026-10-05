@@ -659,8 +659,8 @@ footer li a:hover{color:#7FE3E6}
         <small>Seus dados ficam só com a Gift Forma e servem apenas para responder ao pedido.</small>
       </div>
       <div class="result" id="result" aria-live="polite">
-        <h4>Briefing pronto</h4>
-        <p>Envie o texto abaixo pelo WhatsApp ou e-mail e responderemos com a proposta. O botão copia o resumo para você colar.</p>
+        <h4 id="result-title">Enviando seu briefing…</h4>
+        <p id="result-msg">Aguarde um instante.</p>
         <pre id="summary"></pre>
         <div class="acts">
           <button class="btn btn-primary" type="button" id="copy-btn">Copiar briefing</button>
@@ -766,6 +766,13 @@ footer li a:hover{color:#7FE3E6}
       'Arquivos: '+(names.length?names.join(', '):'envio depois')+'\n'+
       'Ideia: '+(v('desc')||'quero sugestões');
     summary.textContent=text;
+    // Envio automático do briefing para a caixa da GiftForma (serviço FormSubmit, sem servidor próprio)
+    var rt=document.getElementById('result-title'),rm=document.getElementById('result-msg');
+    rt.textContent='Enviando seu briefing…';rm.textContent='Aguarde um instante.';
+    fetch('https://formsubmit.co/ajax/contato@giftforma.com.br',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Novo briefing pelo site: '+v('empresa'),_template:'box',_replyto:v('email'),nome:v('nome'),empresa:v('empresa'),email:v('email'),whatsapp:v('whats'),tipo:v('tipo'),quantidade:v('qtd'),prazo:v('prazo')||'a combinar',arquivos:(names.length?names.join(', '):'envio depois'),ideia:v('desc')||'quero sugestões'})})
+      .then(function(r){return r.ok?r.json():Promise.reject(r.status);})
+      .then(function(){rt.textContent='Briefing enviado!';rm.textContent='Recebemos seu pedido e respondemos pelo e-mail ou WhatsApp informados, normalmente no mesmo dia útil. Se preferir falar agora, use o botão do WhatsApp abaixo.';})
+      .catch(function(){rt.textContent='Briefing pronto';rm.textContent='Não conseguimos enviar automaticamente. Use o botão "Abrir no WhatsApp" e aperte enviar na conversa, ou copie o texto e mande para contato@giftforma.com.br.';});
     if(WHATSAPP){waLink.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(text);}
     else{waLink.href='#orcamento';waLink.removeAttribute('target');}
     result.classList.add('show');
