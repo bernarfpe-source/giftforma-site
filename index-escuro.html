@@ -649,7 +649,7 @@ footer li a:hover{color:#7FE3E6}
         </div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="prazo">Para quando?</label><input id="prazo" name="prazo" type="text" placeholder="Ex.: evento em 15/11 ou fim de ano"></div>
+        <div class="field"><label for="prazo">Para quando?</label><select id="prazo" name="prazo"><option value="">A combinar</option><option>Até 7 dias</option><option>Até 15 dias</option><option>Até 30 dias</option><option>Mais de 30 dias</option><option>Tenho uma data específica (conto na ideia)</option></select></div>
         <div class="field"><label for="logo">Logo ou referências</label><input id="logo" name="logo" type="file" accept=".svg,.ai,.pdf,.png,.jpg,.jpeg,.stl,.step,.stp" multiple><span class="hint">SVG, PDF, PNG, STL. Pode enviar depois pelo WhatsApp.</span></div>
       </div>
       <div class="field"><label for="desc">Descreva a ideia</label><textarea id="desc" name="desc" placeholder="Ex.: queremos um porta-canetas no formato do nosso caminhão, nas cores da frota, para presentear 80 clientes no fim de ano."></textarea></div>
@@ -738,7 +738,7 @@ footer li a:hover{color:#7FE3E6}
   });
 
   var waFloat=document.getElementById('wa-float');
-  if(WHATSAPP){waFloat.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent('Olá! Quero um orçamento de brinde em impressão 3D.');waFloat.target='_blank';waFloat.rel='noopener';}
+  if(WHATSAPP){waFloat.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent('Olá! Vim pelo site da GiftForma e queria saber mais sobre brindes em impressão 3D.');waFloat.target='_blank';waFloat.rel='noopener';}
 
   var toast=document.getElementById('toast'),tt;
   function say(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},2200);}
