@@ -164,8 +164,8 @@ footer .logo img{height:76px;max-width:min(80vw,320px)}
 .hero-visual .chip{position:absolute;right:18px;top:18px;background:var(--cyan-fill);color:var(--cyan-ink);font-family:var(--font-display);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero-visual{order:-1}}
 
-/* ---------- Pillars strip ---------- */
-.pillars{padding-block:0;border-block:0;background:var(--teal-section);color:var(--on-teal)}
+.pillars{padding:clamp(4px,1vw,12px) clamp(0px,2vw,16px) clamp(28px,4vw,56px);border-block:0;background:none;color:var(--on-teal)}
+.pillars .wrap{display:grid;grid-template-columns:repeat(4,1fr);background:var(--teal-section);border-radius:20px;overflow:hidden;padding-inline:clamp(16px,3vw,28px)}
 .pillars .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
 .pillar{padding:26px 22px;display:grid;gap:8px;border-left:1px solid var(--on-teal-line)}
 .pillar:first-child{border-left:0;padding-left:0}
