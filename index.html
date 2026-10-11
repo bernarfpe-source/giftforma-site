@@ -112,7 +112,8 @@ section{padding-block:clamp(56px,8vw,104px);position:relative}
 .logo .l-dark{display:var(--show-dark)}
 .logo .l-light{display:var(--show-light)}
 footer .logo img{height:76px;max-width:min(80vw,320px)}
-.menu{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.menu{display:flex;gap:clamp(16px,2vw,28px);list-style:none;margin:0;padding:0}
+.menu a{white-space:nowrap}
 .menu a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem;transition:color .15s}
 .menu a:hover{color:var(--fg)}
 .nav-cta{display:flex;align-items:center;gap:12px}
@@ -125,7 +126,7 @@ footer .logo img{height:76px;max-width:min(80vw,320px)}
 :root[data-theme="dark"] .theme-btn .sun{display:block}
 :root[data-theme="dark"] .theme-btn .moon{display:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme-btn .sun{display:block}:root:not([data-theme="light"]) .theme-btn .moon{display:none}}
-@media (max-width:900px){
+@media (max-width:1100px){
   .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg-2);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:8px 0}
   .menu.open{display:flex}
   .menu li a{display:block;padding:14px clamp(16px,4vw,32px)}
@@ -191,6 +192,23 @@ footer .logo img{height:76px;max-width:min(80vw,320px)}
 .prod .ico svg{width:26px;height:26px}
 .prod h3{font-size:1.02rem;font-weight:800}
 .prod p{color:var(--muted);font-size:.92rem;line-height:1.5}
+/* ---------- Catálogo por linha ---------- */
+.cat-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:clamp(24px,3vw,40px)}
+.cat-chip{display:inline-flex;text-decoration:none;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--bg-2);color:var(--fg);font-family:var(--font-display);font-weight:700;font-size:.9rem;transition:border-color .2s,color .2s}
+.cat-chip svg{width:18px;height:18px;color:var(--cyan)}
+.cat-chip:hover{border-color:var(--cyan);color:var(--cyan)}
+.cat-block{padding-block:clamp(22px,3vw,36px);border-top:1px solid var(--line);scroll-margin-top:90px}
+.cat-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px}
+.cat-head .ico{flex:none;width:52px;height:52px;border-radius:14px;background:var(--bg-3);display:grid;place-items:center;color:var(--cyan)}
+.cat-head .ico svg{width:28px;height:28px}
+.cat-head h3{font-size:1.25rem;font-weight:800}
+.cat-head p{color:var(--muted);font-size:.95rem;line-height:1.5;max-width:60ch;margin-top:4px}
+.cat-head .btn{margin-left:auto;flex:none;padding:10px 18px;font-size:.85rem}
+.prod.soon{grid-column:1/-1;grid-template-columns:auto 1fr;align-items:center;gap:18px;border-style:dashed;background:transparent}
+.prod.soon .soon-txt{display:grid;gap:6px}
+.prod.soon::after{display:none}
+.prod .tag{display:inline-block;justify-self:start;font-family:var(--font-display);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);border-radius:999px;padding:3px 10px}
+@media (max-width:700px){.cat-head{flex-wrap:wrap}.cat-head .btn{margin-left:0}}
 @media (max-width:1000px){.grid-products{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.grid-products{grid-template-columns:1fr}}
 
@@ -359,6 +377,11 @@ footer li a:hover{color:#7FE3E6}
     <symbol id="i-lamp" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3 11.2V16h6v-1.8A6 6 0 0 0 12 3Z"/></symbol>
     <symbol id="i-ruler" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 17 17 3l4 4L7 21l-4-4ZM8 12l2 2M11 9l2 2M14 6l2 2"/></symbol>
     <symbol id="i-brand" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 4h7l9 9-7 7-9-9V4ZM8 8h.01"/></symbol>
+    <symbol id="i-toy" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 10h16v10H4zM4 10l2-5h12l2 5M9 14h.01M15 14h.01M9.5 17.5c1.5 1 3.5 1 5 0"/></symbol>
+    <symbol id="i-cross" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M10 3h4v6h6v4h-6v8h-4v-8H4V9h6z"/></symbol>
+    <symbol id="i-office" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 21V4h10v17M14 9h6v12M2 21h20M8 8h2M8 12h2M8 16h2M17 13h.01M17 17h.01"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-6h4v6"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 15v-3l2-5h14l2 5v3zM3 15v3h3v-3M18 15v3h3v-3M6 12h.01M18 12h.01M5 12h14"/></symbol>
   </defs>
 </svg>
 
@@ -371,6 +394,7 @@ footer li a:hover{color:#7FE3E6}
     <nav aria-label="Principal">
       <ul class="menu" id="menu">
         <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
         <li><a href="#case">Portfólio</a></li>
         <li><a href="#processo">Como funciona</a></li>
         <li><a href="#porque">Por que 3D</a></li>
@@ -450,6 +474,80 @@ footer li a:hover{color:#7FE3E6}
       <article class="prod"><div class="pic ph" aria-hidden="true"><svg><use href="#i-lamp"/></svg></div><div class="ico"><svg aria-hidden="true"><use href="#i-lamp"/></svg></div><h3>Luminárias e peças decorativas</h3><p>Logo vazado ou em relevo com iluminação LED. Presente de fim de ano para clientes especiais.</p></article>
     </div>
     <p class="prod-note">Imagens das categorias são ilustrativas. As fotos de peças produzidas estão no portfólio.</p>
+  </div>
+</section>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Catálogo por linha</span>
+      <h2 class="h2">Escolha a linha e veja o que já podemos fazer</h2>
+      <p class="lead">Organizamos as peças em cinco linhas. O catálogo cresce a cada semana: novos produtos entram aqui assim que ficam prontos.</p>
+    </div>
+    <nav class="cat-nav" aria-label="Linhas de produto">
+      <a class="cat-chip" href="#cat-brinquedos"><svg aria-hidden="true"><use href="#i-toy"/></svg>Brinquedos</a>
+      <a class="cat-chip" href="#cat-religiosos"><svg aria-hidden="true"><use href="#i-cross"/></svg>Religiosos</a>
+      <a class="cat-chip" href="#cat-corporativo"><svg aria-hidden="true"><use href="#i-office"/></svg>Corporativo</a>
+      <a class="cat-chip" href="#cat-lar"><svg aria-hidden="true"><use href="#i-home"/></svg>Lar e decoração</a>
+      <a class="cat-chip" href="#cat-automotivos"><svg aria-hidden="true"><use href="#i-car"/></svg>Automotivos</a>
+    </nav>
+
+    <!-- Para publicar um produto: troque o cartão "soon" da linha por um <article class="prod"> com foto (.pic > img), nome (h3) e descrição (p). -->
+
+    <div class="cat-block" id="cat-brinquedos">
+      <div class="cat-head">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-toy"/></svg></div>
+        <div><h3>Brinquedos</h3><p>Miniaturas, personagens e peças para brincar e colecionar, com cores vivas e acabamento seguro.</p></div>
+        <a class="btn btn-ghost" href="#orcamento" data-tipo="Brinquedos">Pedir esta linha</a>
+      </div>
+      <div class="grid-products">
+        <article class="prod soon"><div class="ico" aria-hidden="true"><svg><use href="#i-toy"/></svg></div><div class="soon-txt"><span class="tag">Em breve</span><h3>Primeiros brinquedos a caminho</h3><p>Estamos preparando as primeiras peças. Quer algo específico? Peça um orçamento.</p></div></article>
+      </div>
+    </div>
+
+    <div class="cat-block" id="cat-religiosos">
+      <div class="cat-head">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-cross"/></svg></div>
+        <div><h3>Religiosos</h3><p>Imagens, lembranças e peças de devoção para igrejas, comunidades, batizados e celebrações.</p></div>
+        <a class="btn btn-ghost" href="#orcamento" data-tipo="Religiosos">Pedir esta linha</a>
+      </div>
+      <div class="grid-products">
+        <article class="prod soon"><div class="ico" aria-hidden="true"><svg><use href="#i-cross"/></svg></div><div class="soon-txt"><span class="tag">Em breve</span><h3>Primeiras peças religiosas</h3><p>Lembrancinhas e imagens em preparação. Pedidos sob medida já podem ser feitos.</p></div></article>
+      </div>
+    </div>
+
+    <div class="cat-block" id="cat-corporativo">
+      <div class="cat-head">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-office"/></svg></div>
+        <div><h3>Corporativo</h3><p>Brindes com a marca da empresa: chaveiros, organizadores, troféus, displays e miniaturas da frota.</p></div>
+        <a class="btn btn-ghost" href="#orcamento" data-tipo="Corporativo">Pedir esta linha</a>
+      </div>
+      <div class="grid-products">
+        <article class="prod soon"><div class="ico" aria-hidden="true"><svg><use href="#i-office"/></svg></div><div class="soon-txt"><span class="tag">Em breve</span><h3>Catálogo corporativo</h3><p>Veja os projetos já entregues em <a href="#case">Portfólio</a>. Os modelos de catálogo entram aqui em breve.</p></div></article>
+      </div>
+    </div>
+
+    <div class="cat-block" id="cat-lar">
+      <div class="cat-head">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-home"/></svg></div>
+        <div><h3>Lar e decoração</h3><p>Luminárias, vasos, porta-objetos e peças decorativas para deixar a casa com mais personalidade.</p></div>
+        <a class="btn btn-ghost" href="#orcamento" data-tipo="Lar e decoração">Pedir esta linha</a>
+      </div>
+      <div class="grid-products">
+        <article class="prod soon"><div class="ico" aria-hidden="true"><svg><use href="#i-home"/></svg></div><div class="soon-txt"><span class="tag">Em breve</span><h3>Peças para a casa</h3><p>Novos modelos em desenvolvimento. Conte o que você imagina e a gente desenha.</p></div></article>
+      </div>
+    </div>
+
+    <div class="cat-block" id="cat-automotivos">
+      <div class="cat-head">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-car"/></svg></div>
+        <div><h3>Automotivos</h3><p>Acessórios, suportes e miniaturas para carros, motos e caminhões, inclusive peças personalizadas.</p></div>
+        <a class="btn btn-ghost" href="#orcamento" data-tipo="Automotivos">Pedir esta linha</a>
+      </div>
+      <div class="grid-products">
+        <article class="prod soon"><div class="ico" aria-hidden="true"><svg><use href="#i-car"/></svg></div><div class="soon-txt"><span class="tag">Em breve</span><h3>Linha automotiva</h3><p>Primeiros acessórios em teste. Para miniaturas de veículos, veja a frota no portfólio.</p></div></article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -664,6 +762,11 @@ footer li a:hover{color:#7FE3E6}
             <option>Mascote ou personagem</option>
             <option>Display ou porta-cartões</option>
             <option>Luminária ou decorativo</option>
+            <option>Brinquedos</option>
+            <option>Religiosos</option>
+            <option>Corporativo</option>
+            <option>Lar e decoração</option>
+            <option>Automotivos</option>
             <option>Ainda não sei, quero sugestões</option>
           </select>
         </div>
@@ -715,6 +818,7 @@ footer li a:hover{color:#7FE3E6}
       <h4>Navegação</h4>
       <ul>
         <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
         <li><a href="#case">Portfólio</a></li>
         <li><a href="#processo">Como funciona</a></li>
         <li><a href="#faq">Dúvidas</a></li>
@@ -748,6 +852,12 @@ footer li a:hover{color:#7FE3E6}
   burger.addEventListener('click',function(){
     var open=menu.classList.toggle('open');
     burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  // "Pedir esta linha" já seleciona o tipo no formulário de orçamento
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[data-tipo]');
+    var sel=document.getElementById('tipo');
+    if(a&&sel){sel.value=a.getAttribute('data-tipo');}
   });
   menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');}});
 
