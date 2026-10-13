@@ -240,6 +240,7 @@ footer .logo img{height:76px;max-width:min(80vw,320px)}
 .case.alt{background:linear-gradient(118deg,var(--bg) 0 45%,var(--tint) 45.1%)}
 .case.alt .case-img{order:2}
 .case-duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:0}
+.case-duo.case-uno{grid-template-columns:minmax(0,420px);justify-content:center}
 .case-duo figure{margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#F2F2F2;box-shadow:var(--shadow);min-width:0}
 .case-duo img{width:100%;height:100%;object-fit:cover;aspect-ratio:.78}
 .case-duo figcaption{font-size:.8rem;color:var(--muted);padding:10px 12px;background:var(--bg-2);border-top:1px solid var(--line)}
@@ -641,11 +642,7 @@ footer li a:hover{color:#7FE3E6}
 
 <section class="case" aria-labelledby="case-suporte">
   <div class="wrap">
-    <div class="case-img case-duo">
-      <figure>
-        <img src="assets/suporte-xavante.jpg" alt="Suporte de celular azul-marinho sobre uma mesa de madeira, segurando um smartphone com a tela acesa" width="800" height="1024" loading="lazy">
-        <figcaption>Versão azul-marinho, nas cores da Viação Xavante</figcaption>
-      </figure>
+    <div class="case-img case-duo case-uno">
       <figure>
         <img src="assets/suporte-rionovo-verso.jpg" alt="Verso do suporte de celular verde, com a placa Rio Novo Encomendas e o telefone em relevo branco" width="800" height="1024" loading="lazy">
         <figcaption>Verso verde com a placa Rio Novo. Imagens ilustrativas do projeto.</figcaption>
@@ -654,7 +651,7 @@ footer li a:hover{color:#7FE3E6}
     <div class="case-body">
       <span class="eyebrow">Novo produto</span>
       <h3 id="case-suporte">Suporte de celular com a placa da sua empresa</h3>
-      <span class="client"><i aria-hidden="true"></i>Exemplos: Rio Novo Encomendas e Viação Xavante</span>
+      <span class="client"><i aria-hidden="true"></i>Exemplo: Rio Novo Encomendas</span>
       <p class="lead" style="margin-top:18px">Um brinde que fica na mesa todos os dias: o celular apoia na rampa e, no verso, a marca da empresa fica à vista de quem está do outro lado.</p>
       <ul class="specs">
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Placa com logo e telefone em relevo</b>, impressa à parte e colada no verso, nas cores da sua marca.</span></li>
