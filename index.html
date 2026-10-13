@@ -196,7 +196,7 @@ footer .logo img{height:76px;max-width:min(80vw,320px)}
 .prod .prod-preco{color:var(--fg);font-weight:800;font-size:1.15rem;margin-top:2px}
 .prod .prod-preco s{color:var(--muted);font-weight:500;font-size:.88rem;margin-right:4px}.prod .prod-off{display:inline-block;background:#E8F7F0;color:#14683A;font-size:.72rem;font-weight:800;border-radius:999px;padding:2px 8px;vertical-align:middle}
 /* ---------- Catálogo por linha ---------- */
-.cat-mosaic{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.cat-mosaic{display:grid;grid-template-columns:repeat(8,1fr);gap:16px}
 .cat-tile{grid-column:span 2;text-align:left;font:inherit;color:var(--fg);cursor:pointer;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;display:grid;gap:10px;align-content:start;min-height:210px;position:relative;transition:border-color .2s,transform .2s}
 .cat-tile:hover,.cat-tile:focus-visible{border-color:var(--cyan);transform:translateY(-3px)}
 .cat-tile .ico{width:56px;height:56px;border-radius:14px;background:var(--bg-3);display:grid;place-items:center;color:var(--cyan)}
@@ -220,6 +220,7 @@ footer .logo img{height:76px;max-width:min(80vw,320px)}
 .prod.soon .soon-txt{display:grid;gap:6px}
 .prod.soon::after{display:none}
 .prod .tag{display:inline-block;justify-self:start;font-family:var(--font-display);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);border-radius:999px;padding:3px 10px}
+@media (max-width:1100px) and (min-width:901px){.cat-mosaic{grid-template-columns:repeat(6,1fr)}}
 @media (max-width:900px){.cat-mosaic{grid-template-columns:1fr 1fr}.cat-tile{grid-column:span 1}}
 @media (max-width:520px){.cat-mosaic{grid-template-columns:1fr}.cat-tile{min-height:0}}
 @media (max-width:1000px){.grid-products{grid-template-columns:repeat(2,1fr)}}
@@ -397,6 +398,8 @@ footer li a:hover{color:#7FE3E6}
     <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-6h4v6"/></symbol>
     <symbol id="i-car" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 15v-3l2-5h14l2 5v3zM3 15v3h3v-3M18 15v3h3v-3M6 12h.01M18 12h.01M5 12h14"/></symbol>
     <symbol id="i-gift" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 8h18v4H3zM5 12v9h14v-9M12 8v13M12 8c-1-3-5-4-5-1.500S10 8 12 8zM12 8c1-3 5-4 5-1.500S14 8 12 8z"/></symbol>
+    <symbol id="i-paw" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 13c-3 0-5.5 3-5.5 5.2C6.5 19.8 8 20.5 9.5 20c1-.3 1.7-.6 2.5-.6s1.5.3 2.5.6c1.5.5 3-.2 3-1.8C17.5 16 15 13 12 13zM6 8.5a1.8 2.2 0 1 0 0 .01M18 8.5a1.8 2.2 0 1 0 0 .01M9.3 5a1.8 2.3 0 1 0 0 .01M14.7 5a1.8 2.3 0 1 0 0 .01"/></symbol>
+    <symbol id="i-kid" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 1 0 0-7zM10.5 7h.01M13.5 7h.01M10.8 8.6c.7.5 1.7.5 2.4 0M7 21v-4.5A3.5 3.5 0 0 1 10.5 13h3a3.5 3.5 0 0 1 3.5 3.5V21M4.5 15l2.5-1.5M19.5 15L17 13.5"/></symbol>
   </defs>
 </svg>
 
@@ -506,6 +509,8 @@ footer li a:hover{color:#7FE3E6}
       <button type="button" class="cat-tile" data-cat="lar" aria-haspopup="dialog"><span class="ico"><svg aria-hidden="true"><use href="#i-home"/></svg></span><b>Lar e decoração</b><span class="d">Luminárias, vasos, porta-objetos e peças decorativas para deixar a casa com mais personalidade.</span><span class="cnt" data-count></span></button>
       <button type="button" class="cat-tile" data-cat="automotivos" aria-haspopup="dialog"><span class="ico"><svg aria-hidden="true"><use href="#i-car"/></svg></span><b>Automotivos</b><span class="d">Acessórios, suportes e miniaturas para carros, motos e caminhões, inclusive peças personalizadas.</span><span class="cnt" data-count></span></button>
       <button type="button" class="cat-tile" data-cat="datas" aria-haspopup="dialog"><span class="ico"><svg aria-hidden="true"><use href="#i-gift"/></svg></span><b>Aniversários e datas comemorativas</b><span class="d">Lembranças para aniversários, Dia das Mães, Dia dos Pais, Natal, formaturas, casamentos e outras celebrações.</span><span class="cnt" data-count></span></button>
+      <button type="button" class="cat-tile" data-cat="pets" aria-haspopup="dialog"><span class="ico"><svg aria-hidden="true"><use href="#i-paw"/></svg></span><b>Pets</b><span class="d">Placas de identificação, porta-petiscos, comedouros e lembranças com o nome e o jeitinho do seu bichinho.</span><span class="cnt" data-count></span></button>
+      <button type="button" class="cat-tile" data-cat="criancas" aria-haspopup="dialog"><span class="ico"><svg aria-hidden="true"><use href="#i-kid"/></svg></span><b>Crianças</b><span class="d">Lembrancinhas de festa infantil, brinquedos educativos, porta-lápis e peças com o nome da criança.</span><span class="cnt" data-count></span></button>
     </div>
   </div>
 
@@ -588,6 +593,28 @@ footer li a:hover{color:#7FE3E6}
       <article class="prod"><div class="pic" style="aspect-ratio:1"><img src="assets/produtos/porta-guardanapos-natal-laco.jpg" alt="Porta-guardanapos vermelho com laço branco impresso em 3D, sobre uma mesa de madeira" loading="lazy" width="800" height="800" style="object-fit:contain;background:#fff"></div><h3>Porta-guardanapos de Natal com laço</h3><p>Porta-guardanapos vermelho com um laço branco em destaque: o toque de Natal na mesa da ceia.</p><p class="prod-med">5,2 × 17 × 11,1 cm</p><p class="prod-preco">R$ 31,00</p><a class="btn btn-ghost" href="#orcamento" data-tipo="Aniversários e datas comemorativas">Quero o meu</a></article>
     </div>
     <div class="cat-dlg-foot"><a class="btn btn-primary" href="#orcamento" data-tipo="Aniversários e datas comemorativas">Pedir orçamento desta linha</a></div>
+  </dialog>
+  <dialog class="cat-dlg" id="cat-pets" aria-labelledby="cat-pets-t">
+    <div class="cat-dlg-head">
+      <div class="ico"><svg aria-hidden="true"><use href="#i-paw"/></svg></div>
+      <div><h3 id="cat-pets-t">Pets</h3><p>Placas de identificação, porta-petiscos, comedouros e lembranças com o nome e o jeitinho do seu bichinho.</p></div>
+      <button type="button" class="cat-close" aria-label="Fechar">&times;</button>
+    </div>
+    <div class="grid-products">
+      <article class="prod soon"><div class="ico" aria-hidden="true"><svg><use href="#i-paw"/></svg></div><div class="soon-txt"><span class="tag">Em breve</span><h3>Linha pet a caminho</h3><p>Estamos preparando as primeiras peças para cães e gatos. Quer uma placa com o nome do seu pet ou outra ideia? Peça um orçamento.</p></div></article>
+    </div>
+    <div class="cat-dlg-foot"><a class="btn btn-primary" href="#orcamento" data-tipo="Pets">Pedir orçamento desta linha</a></div>
+  </dialog>
+  <dialog class="cat-dlg" id="cat-criancas" aria-labelledby="cat-criancas-t">
+    <div class="cat-dlg-head">
+      <div class="ico"><svg aria-hidden="true"><use href="#i-kid"/></svg></div>
+      <div><h3 id="cat-criancas-t">Crianças</h3><p>Lembrancinhas de festa infantil, brinquedos educativos, porta-lápis e peças com o nome da criança.</p></div>
+      <button type="button" class="cat-close" aria-label="Fechar">&times;</button>
+    </div>
+    <div class="grid-products">
+      <article class="prod soon"><div class="ico" aria-hidden="true"><svg><use href="#i-kid"/></svg></div><div class="soon-txt"><span class="tag">Em breve</span><h3>Linha infantil a caminho</h3><p>Lembrancinhas para festa, topos de bolo e peças com o nome da criança em preparação. Conte o tema da festa e a gente cria.</p></div></article>
+    </div>
+    <div class="cat-dlg-foot"><a class="btn btn-primary" href="#orcamento" data-tipo="Crianças">Pedir orçamento desta linha</a></div>
   </dialog>
 </section>
 
@@ -804,6 +831,8 @@ footer li a:hover{color:#7FE3E6}
             <option>Lar e decoração</option>
             <option>Automotivos</option>
             <option>Aniversários e datas comemorativas</option>
+            <option>Pets</option>
+            <option>Crianças</option>
             <option>Ainda não sei, quero sugestões</option>
           </select>
         </div>
