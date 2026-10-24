@@ -20,7 +20,7 @@
 <link rel="canonical" href="https://giftforma.com.br/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Manrope:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap">
 <style>
 /* Layout: graphite ground cut by diagonal panels and cyan hairlines, like the poster. One accent (cyan), one bold moment (the hero headline). */
 :root{
@@ -356,6 +356,55 @@ footer li a:hover{color:#7FE3E6}
 
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--fg);color:var(--bg);font-weight:700;font-size:.9rem;padding:10px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.2s;z-index:60}
 .toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* criacoes sob medida */
+.ia{background:var(--tint)}
+.ia-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,5vw,64px);align-items:center}
+.ia-txt{min-width:0}
+.ia-lista{list-style:none;margin:22px 0 0;padding:0;display:grid}
+.ia-lista li{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.15fr);gap:12px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line)}
+.ia-de{color:var(--muted)}
+.ia-seta{color:var(--cyan);font-weight:800}
+.ia-lista b{font-weight:700}
+.ia-visual{display:grid;grid-template-columns:1fr;position:relative;min-width:0}
+.ia-papel,.ia-foto{margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--bg-2);position:relative;max-width:100%}
+.ia-papel{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:22px 22px;width:78%;justify-self:start}
+.ia-foto{width:78%;justify-self:end;margin-top:-70px;box-shadow:var(--shadow-soft);}
+.ia-foto img{display:block;width:100%;height:auto;aspect-ratio:1.23;object-fit:cover}
+.ia-papel figcaption,.ia-foto figcaption{position:absolute;left:12px;bottom:10px;font-family:"Caveat",cursive;font-size:1.35rem;font-weight:700;color:var(--cyan);background:var(--bg-2);padding:0 8px;border-radius:6px}
+.ia-svg{display:block;width:100%;height:auto;padding:14px 10px 30px}
+.ia-traco{fill:none;stroke:var(--fg);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ia-traco .ia-leve,.ia-nota .ia-leve{stroke-width:1.4;opacity:.55}
+.ia-logo{font-family:"Caveat",cursive;font-size:40px;font-weight:700;fill:var(--cyan)}
+.ia-nota path{fill:none;stroke:var(--cyan);stroke-width:1.6;stroke-dasharray:4 4;stroke-linecap:round}
+.ia-nota text{font-family:"Caveat",cursive;font-size:21px;fill:var(--cyan)}
+.ia-vira{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-family:"Caveat",cursive;font-size:2rem;font-weight:700;color:var(--cyan);z-index:2;background:var(--tint);padding:0 12px;border-radius:999px}
+@media (max-width:900px){.ia-grid{grid-template-columns:1fr}.ia-visual{order:-1}}
+@media (max-width:520px){.ia-lista li{grid-template-columns:1fr;gap:2px}.ia-seta{display:none}.ia-papel,.ia-foto{width:88%}.ia-foto{margin-top:-40px}}
+
+.case-tres .case-larga{grid-column:1 / -1}
+.case-tres .case-larga img{aspect-ratio:2.45}
+.case-tres figure:not(.case-larga) img{aspect-ratio:1.1}
+
+.case-video{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:#eef1f4}
+
+.prod .pic-video{background:#fff}
+.case-video.case-giro{aspect-ratio:560/720;object-fit:cover}
+.prod .pic-video video{display:block;width:100%;height:100%;object-fit:cover}
+
+.tam-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,4vw,56px);align-items:center}
+.tam-txt{min-width:0}
+.tam-lista{list-style:none;margin:20px 0 0;padding:0;display:grid}
+.tam-lista li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.tam-lista b{font-family:var(--font-display);font-weight:800;color:var(--cyan)}
+.tam-lista span{color:var(--muted)}
+.tam-img{margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--bg-2);min-width:0}
+.tam-img img{display:block;width:100%;height:auto;aspect-ratio:1200/440}
+.tam-img figcaption{font-size:.8rem;color:var(--muted);padding:10px 12px;border-top:1px solid var(--line)}
+@media (max-width:900px){.tam-grid{grid-template-columns:1fr}.tam-img{order:-1}}
+
+.trust .envio{font-weight:700;color:var(--fg)}
+.tam-envio{align-self:center;font-weight:700;color:var(--cyan)}
 </style>
 </head>
 <body>
@@ -413,6 +462,7 @@ footer li a:hover{color:#7FE3E6}
     </a>
     <nav aria-label="Principal">
       <ul class="menu" id="menu">
+        <li><a href="#criacoes">Criações</a></li>
         <li><a href="#produtos">Brindes</a></li>
         <li><a href="#case">Portfólio</a></li>
         <li><a href="#processo">Como funciona</a></li>
@@ -445,12 +495,13 @@ footer li a:hover{color:#7FE3E6}
       </div>
       <span class="eyebrow">Brindes corporativos em impressão 3D</span>
       <h1 style="margin-top:16px">Brindes que dão <span class="accent">forma à sua marca</span></h1>
-      <p class="sub">Peças exclusivas, modeladas do zero a partir do seu logo, do seu produto ou da sua frota. <strong>Nada de catálogo:</strong> o brinde é a sua marca em três dimensões.</p>
+      <p class="sub">Você traz a ideia, nós transformamos em arte. Peças exclusivas, modeladas do zero a partir do seu logo, do seu produto ou da sua frota. <strong>Nada de catálogo:</strong> o brinde é a sua marca em três dimensões.</p>
       <div class="ctas">
         <a class="btn btn-primary" href="#orcamento">Pedir orçamento <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-ghost" href="#case">Ver um case real</a>
+        <a class="btn btn-ghost" href="#criacoes">Da ideia à peça</a>
       </div>
       <div class="trust">
+        <span class="envio"><svg aria-hidden="true"><use href="#i-check"/></svg>Enviamos para qualquer lugar do Brasil</span>
         <span><svg aria-hidden="true"><use href="#i-check"/></svg>Prova virtual antes de produzir</span>
         <span><svg aria-hidden="true"><use href="#i-check"/></svg>PLA de origem vegetal</span>
         <span><svg aria-hidden="true"><use href="#i-check"/></svg>Pequenas e médias tiragens</span>
@@ -458,9 +509,9 @@ footer li a:hover{color:#7FE3E6}
     </div>
     <div class="hero-visual">
       <div class="frame">
-        <img src="assets/case-rionovo.jpg" alt="Porta-canetas em formato de caminhão verde com o logo Rio Novo Encomendas e Cargas em relevo, segurando canetas e um bloco de notas" width="1032" height="841" loading="eager">
-        <span class="chip">Case real</span>
-        <div class="tag"><b>Caminhão porta-canetas</b><small>Rio Novo Encomendas e Cargas</small></div>
+        <img src="assets/marca-gf/caminhao-perto.jpg" alt="Porta-canetas em formato de caminhão verde com a marca GiftForma em relevo, segurando canetas e um bloco de notas" width="1032" height="841" loading="eager">
+        <span class="chip">Feito na GiftForma</span>
+        <div class="tag"><b>Caminhão porta-canetas</b><small>Com a marca da sua empresa</small></div>
       </div>
     </div>
   </div>
@@ -475,6 +526,47 @@ footer li a:hover{color:#7FE3E6}
   </div>
 </section>
 
+<section id="criacoes" class="ia">
+  <div class="wrap ia-grid">
+    <div class="ia-txt">
+      <span class="eyebrow">Criações sob medida</span>
+      <h2 class="h2">A sua ideia vira arte. Em três dimensões.</h2>
+      <p class="lead">Não precisa chegar com o projeto pronto. Um rabisco, uma foto ou só a história da empresa já bastam: nós criamos a peça, mostramos em 3D e você aprova antes de produzir.</p>
+      <ul class="ia-lista"><li><span class="ia-de">Um rabisco no papel</span><span class="ia-seta" aria-hidden="true">→</span><b>uma peça exclusiva, modelada do zero</b></li><li><span class="ia-de">O logo da empresa</span><span class="ia-seta" aria-hidden="true">→</span><b>relevo, escultura ou luminária com a marca</b></li><li><span class="ia-de">A foto do caminhão, da loja ou do produto</span><span class="ia-seta" aria-hidden="true">→</span><b>uma miniatura fiel, em escala</b></li><li><span class="ia-de">O mascote, o fundador ou a equipe</span><span class="ia-seta" aria-hidden="true">→</span><b>um boneco colecionável</b></li><li><span class="ia-de">Uma data ou uma conquista</span><span class="ia-seta" aria-hidden="true">→</span><b>um troféu ou lembrança comemorativa</b></li></ul>
+      <div class="ctas" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="#orcamento" data-tipo="Criação a partir da minha ideia">Contar minha ideia</a>
+      </div>
+    </div>
+    <div class="ia-visual">
+      <figure class="ia-papel"><svg class="ia-svg" viewBox="0 0 400 300" role="img" aria-label="Rabisco à mão de um caminhão porta-canetas com anotações">
+  <g class="ia-traco">
+    <path d="M42 92 L248 89 L251 201 L44 203 Z"/>
+    <path d="M45 95 L246 92 L249 198 L41 200 Z" class="ia-leve"/>
+    <path d="M250 131 L298 129 L338 166 L340 201 L251 202"/>
+    <path d="M262 141 L293 140 L316 164 L263 165 Z"/>
+    <path d="M118 91 L117 120 M182 90 L183 121" class="ia-leve"/>
+    <path d="M62 91 L54 48 M76 90 L84 42 M92 91 L95 55"/>
+    <path d="M126 90 L127 60 L172 59 L173 89"/>
+    <path d="M190 90 L191 74 L232 73 L233 89" class="ia-leve"/>
+    <circle cx="92" cy="214" r="22"/><circle cx="92" cy="214" r="8" class="ia-leve"/>
+    <circle cx="200" cy="215" r="22"/><circle cx="200" cy="215" r="8" class="ia-leve"/>
+    <circle cx="300" cy="214" r="21"/><circle cx="300" cy="214" r="8" class="ia-leve"/>
+    <path d="M20 238 L380 236" class="ia-leve"/>
+  </g>
+  <text x="84" y="160" class="ia-logo">Sua marca</text>
+  <g class="ia-nota">
+    <path d="M300 60 C270 62 250 80 232 120"/><text x="392" y="50" text-anchor="end">logo em relevo</text>
+    <path d="M28 34 C44 36 52 40 58 46"/><text x="8" y="26">canetas</text>
+    <path d="M150 32 L150 54"/><text x="130" y="26">bloco</text>
+    <path d="M338 118 C326 146 306 154 288 172" class="ia-leve"/><text x="392" y="110" text-anchor="end">verde da frota</text>
+  </g>
+</svg><figcaption>A ideia</figcaption></figure>
+      <span class="ia-vira" aria-hidden="true">vira</span>
+      <figure class="ia-foto"><img src="assets/marca-gf/caminhao-mesa-cartao.jpg" alt="Caminhão porta-canetas laranja pronto, com a marca em relevo, com canetas e bloco de notas" width="1032" height="841" loading="lazy"><figcaption>A peça entregue</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section id="produtos">
   <div class="wrap">
     <div class="sec-head">
@@ -484,13 +576,13 @@ footer li a:hover{color:#7FE3E6}
     </div>
     <div class="grid-products">
       <article class="prod"><div class="pic"><img src="assets/organizador.jpg" alt="Organizador de mesa impresso em 3D em formato de prédio azul-marinho, com canetas, bloco de notas e cartões" loading="lazy" width="1200" height="1200"></div><div class="ico"><svg aria-hidden="true"><use href="#i-pen"/></svg></div><h3>Porta-canetas e organizadores</h3><p>Em formato do seu produto, do seu caminhão ou do seu prédio. Compartimentos para canetas, blocos e cartões.</p></article>
-      <article class="prod"><div class="pic"><img src="assets/case-xavante-mala.jpg" alt="Chaveiro em formato de mala de viagem azul com o logo Xavante e a inscrição 57 anos em relevo, com argola embutida no canto" loading="lazy" width="800" height="1024"></div><div class="ico"><svg aria-hidden="true"><use href="#i-key"/></svg></div><h3>Chaveiros com logo</h3><p>Logo em relevo, duas cores ou mais. O brinde de maior volume e menor custo por peça.</p></article>
-      <article class="prod"><div class="pic"><img src="assets/miniatura-frota.jpg" alt="Miniatura de caminhão de entrega vermelho impressa em 3D sobre uma mesa, ao lado de um notebook" loading="lazy" width="1200" height="1200"></div><div class="ico"><svg aria-hidden="true"><use href="#i-truck"/></svg></div><h3>Miniaturas da frota e de produtos</h3><p>Réplicas em escala de caminhões, máquinas, equipamentos e embalagens, com a pintura da sua identidade.</p></article>
+      <article class="prod"><div class="pic"><img src="assets/chaveiros.jpg" alt="Chaveiros laranja impressos em 3D com logo em relevo branco, com argolas de metal" loading="lazy" width="1200" height="1200"></div><div class="ico"><svg aria-hidden="true"><use href="#i-key"/></svg></div><h3>Chaveiros com logo</h3><p>Logo em relevo, duas cores ou mais. O brinde de maior volume e menor custo por peça.</p></article>
+      <article class="prod"><div class="pic"><img src="assets/marca-gf/caminhao-lado.jpg" alt="Caminhão porta-canetas laranja impresso em 3D sobre a bancada, com canetas, blocos e a marca no baú" loading="lazy" width="421" height="391"></div><div class="ico"><svg aria-hidden="true"><use href="#i-truck"/></svg></div><h3>Miniaturas da frota e de produtos</h3><p>Réplicas em escala de caminhões, máquinas, equipamentos e embalagens, com a pintura da sua identidade.</p></article>
       <article class="prod"><div class="pic"><img src="assets/trofeu.jpg" alt="Troféu geométrico dourado impresso em 3D sobre base preta com logo e placa de identificação" loading="lazy" width="1200" height="1200"></div><div class="ico"><svg aria-hidden="true"><use href="#i-trophy"/></svg></div><h3>Troféus e placas</h3><p>Reconhecimento de equipe, premiação de parceiros e marcos da empresa com desenho exclusivo.</p></article>
-      <article class="prod"><div class="pic"><img src="assets/suporte-rionovo-verso.jpg" alt="Verso do suporte de celular verde impresso em 3D, com a placa Rio Novo Encomendas e Cargas e o telefone em relevo branco" loading="lazy" width="800" height="1024"></div><div class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></div><h3>Suportes de celular e notebook</h3><p>Brinde de home office com a placa da empresa em relevo no verso: logo, cores e telefone da sua marca.</p></article>
-      <article class="prod"><div class="pic ph" aria-hidden="true"><svg><use href="#i-mascot"/></svg></div><div class="ico"><svg aria-hidden="true"><use href="#i-mascot"/></svg></div><h3>Mascotes e personagens</h3><p>Transformamos o mascote 2D da sua marca em um boneco físico colecionável.</p></article>
-      <article class="prod"><div class="pic ph" aria-hidden="true"><svg><use href="#i-card"/></svg></div><div class="ico"><svg aria-hidden="true"><use href="#i-card"/></svg></div><h3>Porta-cartões e displays de balcão</h3><p>Peças para recepção, feira e ponto de venda que apresentam a marca e organizam o material.</p></article>
-      <article class="prod"><div class="pic ph" aria-hidden="true"><svg><use href="#i-lamp"/></svg></div><div class="ico"><svg aria-hidden="true"><use href="#i-lamp"/></svg></div><h3>Luminárias e peças decorativas</h3><p>Logo vazado ou em relevo com iluminação LED. Presente de fim de ano para clientes especiais.</p></article>
+      <article class="prod"><div class="pic"><img src="assets/suporte-celular.jpg" alt="Suporte de celular branco impresso em 3D com logo em relevo, segurando um celular na mesa de trabalho" loading="lazy" width="1200" height="1200"></div><div class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></div><h3>Suportes de celular e notebook</h3><p>Brinde de home office com a placa da empresa em relevo no verso: logo, cores e telefone da sua marca.</p></article>
+      <article class="prod"><div class="pic pic-video"><video src="assets/mascote/mascote-montagem.mp4" poster="assets/mascote/mascote-capa.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Mascote de cegonha sendo montado peça por peça: base, pernas, corpo com camisa polo, asas, cabeça e a malinha de viagem"></video></div><div class="ico"><svg aria-hidden="true"><use href="#i-mascot"/></svg></div><h3>Mascotes e personagens</h3><p>Transformamos o mascote 2D da sua marca em um boneco físico colecionável.</p></article>
+      <article class="prod"><div class="pic"><img src="assets/brindes/porta-cartoes-cartao.jpg" alt="Porta-cartões com cartões de visita e display de balcão com QR code, ambos com a marca" loading="lazy" width="1000" height="800"></div><div class="ico"><svg aria-hidden="true"><use href="#i-card"/></svg></div><h3>Porta-cartões e displays de balcão</h3><p>Peças para recepção, feira e ponto de venda que apresentam a marca e organizam o material.</p></article>
+      <article class="prod"><div class="pic"><img src="assets/brindes/luminaria-cartao.jpg" alt="Luminária de mesa grafite com a logo e o texto SUA MARCA vazados, acesos com luz de LED" loading="lazy" width="1000" height="800"></div><div class="ico"><svg aria-hidden="true"><use href="#i-lamp"/></svg></div><h3>Luminárias e peças decorativas</h3><p>Logo vazado ou em relevo com iluminação LED. Presente de fim de ano para clientes especiais.</p></article>
     </div>
     <p class="prod-note">Imagens das categorias são ilustrativas. As fotos de peças produzidas estão no portfólio.</p>
   </div>
@@ -498,18 +590,47 @@ footer li a:hover{color:#7FE3E6}
 
 
 
+<section id="tamanhos" class="tam">
+  <div class="wrap tam-grid">
+    <div class="tam-txt">
+      <span class="eyebrow">Do chaveiro ao troféu</span>
+      <h2 class="h2">Brindes para qualquer tamanho e bolso</h2>
+      <p class="lead">Do chaveiro e do ímã de geladeira, que saem às centenas e custam pouco por unidade, até a peça especial para o cliente mais importante. Diga quantas unidades precisa e quanto quer investir: nós indicamos a peça e o tamanho certos.</p>
+      <ul class="tam-lista">
+        <li><b>Pequenos</b><span>Chaveiros e ímãs de geladeira, para eventos e grandes quantidades.</span></li>
+        <li><b>Médios</b><span>Porta-canetas, suportes e porta-cartões que ficam na mesa do cliente.</span></li>
+        <li><b>Especiais</b><span>Troféus, miniaturas e luminárias para quem merece destaque.</span></li>
+      </ul>
+      <div class="ctas" style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="#orcamento" data-tipo="Chaveiro">Pedir orçamento</a><span class="tam-envio">Enviamos para qualquer lugar do Brasil.</span>
+      </div>
+    </div>
+    <figure class="tam-img">
+      <img src="assets/brindes/tamanhos-faixa.jpg" alt="Chaveiros e ímãs de geladeira com a marca, em seis tamanhos, do menor ao maior" width="1200" height="440" loading="lazy">
+      <figcaption>Chaveiros e ímãs de vários tamanhos, todos com a sua marca.</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section id="case" class="case">
   <div class="wrap">
-    <div class="case-img">
-      <img src="assets/case-rionovo.jpg" alt="Detalhe do caminhão porta-canetas Rio Novo com os três compartimentos ocupados por canetas e bloco de notas" width="1032" height="841" loading="lazy">
+    <div class="case-img case-duo">
+      <figure>
+        <img src="assets/marca-gf/caminhao-frente.jpg" alt="Caminhão porta-canetas laranja visto de frente, com canetas e a placa da marca na grade" width="321" height="391" loading="lazy">
+        <figcaption>De frente: a placa com a sua marca</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/marca-gf/caminhao-traseira.jpg" alt="Traseira do caminhão porta-canetas laranja, com a marca em relevo nas portas do baú" width="331" height="391" loading="lazy">
+        <figcaption>Por trás: a marca nas portas do baú</figcaption>
+      </figure>
     </div>
     <div class="case-body">
       <span class="eyebrow">Case</span>
-      <h3>Caminhão porta-canetas para a Rio Novo Encomendas e Cargas</h3>
+      <h3>Caminhão porta-canetas com a marca da transportadora</h3>
       <span class="client"><i aria-hidden="true"></i>Transportadora · brinde para clientes</span>
       <p class="lead" style="margin-top:18px">Uma transportadora precisava de um brinde que lembrasse o serviço dela todos os dias na mesa do cliente. A resposta foi a própria frota: um baú de caminhão que organiza canetas, bloco de notas e cartões.</p>
       <ul class="specs">
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Logo em relevo</b> impresso na própria peça, em branco sobre o verde da frota. Não descasca nem desbota como adesivo.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Logo em relevo</b> impresso na própria peça, em branco sobre a cor da frota. Não descasca nem desbota como adesivo.</span></li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Três compartimentos</b> dimensionados para canetas, bloco de notas padrão e cartões de visita.</span></li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Cabine, rodas e para-choque</b> modelados a partir das fotos do caminhão real, para o cliente reconhecer a frota.</span></li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Cor do padrão visual</b> da empresa, sem pintura: o filamento já vem na cor certa.</span></li>
@@ -525,7 +646,7 @@ footer li a:hover{color:#7FE3E6}
   <div class="wrap">
     <div class="case-img case-duo">
       <figure>
-        <img src="assets/case-xavante-mala.jpg" alt="Render do chaveiro em formato de mala de viagem azul-marinho com o logo Xavante 57 anos em relevo e argola embutida no canto superior" width="800" height="1024" loading="lazy">
+        <img src="assets/marca-gf/mala-frente.jpg" alt="Chaveiro em formato de mala de viagem azul com a marca na placa branca e argola embutida no canto superior" width="800" height="1024" loading="lazy">
         <figcaption>Mala de viagem com argola embutida</figcaption>
       </figure>
       <figure>
@@ -535,12 +656,12 @@ footer li a:hover{color:#7FE3E6}
     </div>
     <div class="case-body">
       <span class="eyebrow">Case</span>
-      <h3 id="case-xavante">Chaveiro comemorativo dos 57 anos da Viação Xavante</h3>
+      <h3 id="case-xavante">Chaveiro comemorativo para empresa de ônibus</h3>
       <span class="client xv"><i aria-hidden="true"></i>Empresa de ônibus · aniversário da marca</span>
-      <p class="lead" style="margin-top:18px">Para a data comemorativa, um chaveiro em formato de mala de viagem, a mala do passageiro, com o selo dos 57 anos e o logo da empresa em relevo.</p>
+      <p class="lead" style="margin-top:18px">Para a data comemorativa, um chaveiro em formato de mala de viagem, a mala do passageiro, com o logo da empresa e o selo da data em destaque.</p>
       <ul class="specs">
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Argola embutida no corpo da peça</b>, sem orelha saliente: a mala continua com a silhueta limpa e o furo do aro fica protegido.</span></li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Impressão em várias cores</b> na mesma peça: o azul do corpo, o branco da faixa e as cores do logo saem direto da impressora, sem pintura.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Impressão em várias cores</b> na mesma peça: o azul do corpo, o branco da placa e as cores do logo saem direto da impressora, sem pintura.</span></li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Frisos, rodinhas e alça</b> modelados em relevo, mantidos também na parte de trás da mala.</span></li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Tiragem em bandeja cheia</b>: dezenas de chaveiros por impressão, o que viabiliza centenas de unidades para distribuir a passageiros e equipe.</span></li>
       </ul>
@@ -555,14 +676,14 @@ footer li a:hover{color:#7FE3E6}
   <div class="wrap">
     <div class="case-img case-duo case-uno">
       <figure>
-        <img src="assets/suporte-rionovo-verso.jpg" alt="Verso do suporte de celular verde, com a placa Rio Novo Encomendas e o telefone em relevo branco" width="800" height="1024" loading="lazy">
-        <figcaption>Verso verde com a placa Rio Novo. Imagens ilustrativas do projeto.</figcaption>
+        <video class="case-video case-giro" src="assets/brindes/suporte-giro.mp4" poster="assets/brindes/suporte-giro-capa.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Suporte de celular girando: na frente o celular apoiado na borda, no verso a placa com a marca, AQUI SUA PUBLICIDADE e o site"></video>
+        <figcaption>Em 360°: o celular na frente, a sua marca no verso. Imagem ilustrativa do projeto.</figcaption>
       </figure>
     </div>
     <div class="case-body">
       <span class="eyebrow">Novo produto</span>
       <h3 id="case-suporte">Suporte de celular com a placa da sua empresa</h3>
-      <span class="client"><i aria-hidden="true"></i>Exemplo: Rio Novo Encomendas</span>
+      <span class="client"><i aria-hidden="true"></i>Exemplo com a marca GiftForma</span>
       <p class="lead" style="margin-top:18px">Um brinde que fica na mesa todos os dias: o celular apoia na rampa e, no verso, a marca da empresa fica à vista de quem está do outro lado.</p>
       <ul class="specs">
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Placa com logo e telefone em relevo</b>, impressa à parte e colada no verso, nas cores da sua marca.</span></li>
@@ -571,6 +692,33 @@ footer li a:hover{color:#7FE3E6}
       </ul>
       <div class="ctas" style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn btn-primary" href="#orcamento">Quero um suporte assim</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case alt" aria-labelledby="case-poltrona">
+  <div class="wrap">
+    <div class="case-img case-duo case-uno">
+      <figure>
+        <video class="case-video" src="assets/poltrona/poltrona-montagem.mp4" poster="assets/poltrona/poltrona-capa.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Animação da montagem da poltrona porta-celular e caneta, peça por peça, até o verso com a sua marca e a caixa"></video>
+        <figcaption>Animação da montagem. Imagem ilustrativa do projeto.</figcaption>
+      </figure>
+    </div>
+    <div class="case-body">
+      <span class="eyebrow">Brinde · novo produto</span>
+      <h3 id="case-poltrona">Poltrona de ônibus porta-celular e caneta</h3>
+      <span class="client"><i aria-hidden="true"></i>Para empresas de ônibus e turismo</span>
+      <p class="lead" style="margin-top:18px">A poltrona do passageiro em miniatura, para a mesa do cliente: o celular apoia no encosto, a caneta fica no braço e o verso leva a sua marca.</p>
+      <ul class="specs">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Montagem por pinos</b>: base, corpo, braços e encosto se encaixam com firmeza, sem cola aparente.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Porta-caneta no braço</b>, com anel de apoio e batente no pé.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Celular em pé no encosto</b>, com a tela à vista na mesa.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Verso com a sua marca</b>, numa placa nas cores da empresa.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Chega montada</b>, numa caixa que também leva a sua propaganda.</span></li>
+      </ul>
+      <div class="ctas" style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="#orcamento">Quero uma poltrona assim</a>
       </div>
     </div>
   </div>
@@ -705,6 +853,7 @@ footer li a:hover{color:#7FE3E6}
             <option>Mascote ou personagem</option>
             <option>Display ou porta-cartões</option>
             <option>Luminária ou decorativo</option>
+            <option>Criação a partir da minha ideia</option>
             <option>Ainda não sei, quero sugestões</option>
           </select>
         </div>
@@ -755,6 +904,7 @@ footer li a:hover{color:#7FE3E6}
     <div>
       <h4>Navegação</h4>
       <ul>
+        <li><a href="#criacoes">Criações</a></li>
         <li><a href="#produtos">Brindes</a></li>
         <li><a href="#case">Portfólio</a></li>
         <li><a href="#processo">Como funciona</a></li>
